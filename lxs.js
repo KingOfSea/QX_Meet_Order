@@ -214,6 +214,8 @@ function isDateOverdue(day) {
   if (date.getTime() < Date.now()) {
     return true
   }
+  console.log(date.getTime());
+  console.log(Date.now());
   return false
 }
 
@@ -237,6 +239,8 @@ if (isOverdue == false) {
   //   $done();
   // });
   console.log("请求");
+  $done();
 } else {
   console.log("日期已过期");
+  $done();
 }
