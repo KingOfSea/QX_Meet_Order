@@ -24,11 +24,11 @@ const myRequest = {
 };
 
 $task.fetch(myRequest).then(response => {
-    var data = response.body;
     var body = JSON.parse(response.body);
-    console.log(data);
     console.log(body.cookie);
+    $prefs.setValueForKey(body.cookie, 'meet_ck');
     console.log(body.date);
+    $prefs.setValueForKey(body.date, 'meet_date');
     $done();
 }, reason => {
     console.log(reason.error);
