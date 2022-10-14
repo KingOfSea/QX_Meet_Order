@@ -25,6 +25,7 @@ const myRequest = {
 
 $task.fetch(myRequest).then(response => {
     var data = response.body;
+    console.log(data);
     console.log(data.cookie);
     console.log(data.date);
     $done();
