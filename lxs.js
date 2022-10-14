@@ -214,6 +214,7 @@ function isDateOverdue(day) {
   if (date.getTime() < Date.now()) {
     return true
   }
+  console.log(day);
   console.log(date.getTime());
   console.log(Date.now());
   return false
