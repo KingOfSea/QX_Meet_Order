@@ -2,8 +2,10 @@
  "name": "Meet Order",
  "description": "",
  "task": [
-    {"config":"0 9 * * * https://raw.githubusercontent.com/KingOfSea/QX_Meet_Order/master/get_info.js, tag=get_info, enabled=true"},
-    {"config":"0 9 * * * https://raw.githubusercontent.com/KingOfSea/QX_Meet_Order/master/lxs.js, tag=lxs, enabled=true"},
-    {"config":"0 9 * * * https://raw.githubusercontent.com/KingOfSea/QX_Meet_Order/master/tbs.js, tag=tbs, enabled=true"}
+    {"config":"0 0/5 9 ? * FRI https://raw.githubusercontent.com/KingOfSea/QX_Meet_Order/master/get_info.js, tag=get_info, enabled=true"},
+    {"config":"59 59 9 ? * FRI https://raw.githubusercontent.com/KingOfSea/QX_Meet_Order/master/lxs.js, tag=lxs_09, enabled=true"},
+    {"config":"0 0 10 ? * FRI https://raw.githubusercontent.com/KingOfSea/QX_Meet_Order/master/lxs.js, tag=lxs_10, enabled=true"},
+    {"config":"59 59 9 ? * FRI https://raw.githubusercontent.com/KingOfSea/QX_Meet_Order/master/tbs.js, tag=tbs_09, enabled=true"},
+    {"config":"0 0 10 ? * FRI https://raw.githubusercontent.com/KingOfSea/QX_Meet_Order/master/tbs.js, tag=tbs_10, enabled=true"}
   ]
 }
