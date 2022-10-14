@@ -2,6 +2,6 @@
  "name": "Meet Order",
  "description": "",
  "task": [
-    {"config":"0 9 * * * https://raw.githubusercontent.com/KingOfSea/QX_Meet_Order/master/qx_meet_info.js, tag=meet_info, enabled=true"}
+    {"config":"0 9 * * * https://raw.githubusercontent.com/KingOfSea/QX_Meet_Order/master/qx_meet_info.js, tag=meet_info, update-interval=10, enabled=true"}
   ]
 }
