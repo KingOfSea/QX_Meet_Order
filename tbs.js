@@ -226,11 +226,18 @@ const myRequest = {
 
 var isOverdue = isDateOverdue(day)
 if (isOverdue == false) {
-  $task.fetch(myRequest).then(response => {
-    console.log(response.statusCode + "\n\n" + response.body);
-    $done();
-  }, reason => {
-    console.log(reason.error);
-    $done();
-  });
+  if (csrftoken) {
+    $task.fetch(myRequest).then(response => {
+      console.log(response.statusCode + "\n\n" + response.body);
+      $done();
+    }, reason => {
+      console.log(reason.error);
+      $done();
+    });
+  } else {
+    console.log(`cookie里没有csrftoken`);
+  }
+} else {
+  console.log(`${day}日期已过期`);
+  $done();
 }
