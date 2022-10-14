@@ -214,9 +214,6 @@ function isDateOverdue(day) {
   if (date.getTime() < Date.now()) {
     return true
   }
-  console.log(day);
-  console.log(date.getTime());
-  console.log(Date.now());
   return false
 }
 
@@ -227,21 +224,20 @@ const myRequest = {
     body: body
 };
 
-console.log(url);
-console.log(headers);
-console.log(body);
 var isOverdue = isDateOverdue(day)
 if (isOverdue == false) {
-  // $task.fetch(myRequest).then(response => {
-  //   console.log(response.statusCode + "\n\n" + response.body);
-  //   $done();
-  // }, reason => {
-  //   console.log(reason.error);
-  //   $done();
-  // });
-  console.log("请求");
-  $done();
+  if (csrftoken) {
+    $task.fetch(myRequest).then(response => {
+      console.log(response.statusCode + "\n\n" + response.body);
+      $done();
+    }, reason => {
+      console.log(reason.error);
+      $done();
+    });
+  } else {
+    console.log(`cookie里没有csrftoken`);
+  }
 } else {
-  console.log("日期已过期");
+  console.log(`${day}日期已过期`);
   $done();
 }
