@@ -25,9 +25,10 @@ const myRequest = {
 
 $task.fetch(myRequest).then(response => {
     var data = response.body;
+    var body = JSON.parse(response.body);
     console.log(data);
-    console.log(data.cookie);
-    console.log(data.date);
+    console.log(body.cookie);
+    console.log(body.date);
     $done();
 }, reason => {
     console.log(reason.error);
