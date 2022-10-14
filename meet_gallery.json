@@ -3,5 +3,6 @@
  "description": "",
  "task": [
     {"config":"0 9 * * * https://raw.githubusercontent.com/KingOfSea/QX_Meet_Order/master/qx_meet_info.js, tag=meet_info, enabled=true"}
+    {"config":"0 9 * * * https://raw.githubusercontent.com/KingOfSea/QX_Meet_Order/master/base64.js, tag=base64, enabled=true"}
   ]
 }
