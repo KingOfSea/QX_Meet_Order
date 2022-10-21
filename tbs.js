@@ -224,20 +224,45 @@ const myRequest = {
     body: body
 };
 
-var isOverdue = isDateOverdue(day)
-if (isOverdue == false) {
-  if (csrftoken) {
-    $task.fetch(myRequest).then(response => {
-      console.log(response.statusCode + "\n\n" + response.body);
-      $done();
-    }, reason => {
-      console.log(reason.error);
-      $done();
-    });
-  } else {
-    console.log(`cookie里没有csrftoken`);
-  }
-} else {
-  console.log(`${day}日期已过期`);
-  $done();
+var count = 10
+var interval = 1000 / count
+for (index = 0; index < count; index++) {
+    setTimeout(requestData, index * interval)
+}
+
+var done = false
+var executedCount = 0
+function requestData() {
+    if (done) {
+      $done()
+      return
+    }
+    var isOverdue = isDateOverdue(day)
+    if (isOverdue == false) {
+      if (csrftoken) {
+        $task.fetch(myRequest).then(response => {
+          console.log(response.statusCode + "\n\n" + response.body);
+          executedCount++
+          if (executedCount >= count) {
+            done = true
+            $done()
+          }
+        }, reason => {
+          console.log(reason.error);
+          executedCount++
+          if (executedCount >= count) {
+            done = true
+            $done()
+          }
+        });
+      } else {
+        console.log(`cookie里没有csrftoken`);
+        done = true
+        $done()
+      }
+    } else {
+      console.log(`${day}日期已过期`);
+      done = true
+      $done()
+    }
 }
