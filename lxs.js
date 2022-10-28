@@ -226,7 +226,7 @@ const myRequest = {
 
 var count = 10
 var interval = 1000 / count
-for (index = 0; index < count; index++) {
+for (index = 3; index < 8; index = index + 2) {
     setTimeout(requestData, index * interval)
 }
 
@@ -243,7 +243,8 @@ function requestData() {
         $task.fetch(myRequest).then(response => {
           console.log(response.statusCode + "\n\n" + response.body);
           executedCount++
-          if (executedCount >= count) {
+          var body = JSON.parse(response.body)
+          if (executedCount >= count || body.code == "200") {
             done = true
             $done()
           }
