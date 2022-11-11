@@ -109,7 +109,7 @@ function Base64() {
 }
 
 this.base64 = new Base64();
-var theme = this.base64.decode("572R57qm6L2m5Ye66KGM5oqA5pyv5ZGo5Lya")
+var theme = this.base64.decode("5LmY5a6i5L2T6aqM5oqA5pyv5ZGo5Lya")
 var room_name = this.base64.decode("572X6ZyE5bGx77yI5paw5qmZ5rW3QuW6pzJG77yJ")
 var address = this.base64.decode("5YyX5LqsLeaWsOapmea1t+Wkp+WOpg==")
 
