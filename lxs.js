@@ -226,7 +226,7 @@ const myRequest = {
 
 var count = 10
 var interval = 1000 / count
-for (index = 3; index < 8; index = index + 2) {
+for (index = 0; index < 3; index++) {
     setTimeout(requestData, index * interval)
 }
 
